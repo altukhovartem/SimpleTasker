@@ -16,8 +16,8 @@ namespace ConsoleApplication1
                 Console.WriteLine("Available command for now ... Press nessecety button");
                 while (true)
                 {
-                    Console.WriteLine("1 - {0}\n2 - {1}\n3 - {2}", 
-                        "Add new task", 
+                    Console.WriteLine("1 - {0}\n2 - {1}\n3 - {2}",
+                        "Add new task",
                         "Delete existing task",
                         "Show all available task");
 
@@ -29,19 +29,13 @@ namespace ConsoleApplication1
                         case 3: Console.WriteLine("ShowTasks"); break;
                         default:
                             break;
-                    
+
+                    }
+
                 }
-
-                //Task task = new Task()
-                //{
-                //    taskID = 1,
-                //    createdDate = new DateTime(2007, 2, 2),
-                //    title = "Task1"
-                //};
-
-                //currentDbContext.TaskSet.Add(task);
-                //currentDbContext.SaveChanges();
             }
         }
     }
 }
+
+
