@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ConsoleApplication1.DBHelpers;
 
 namespace ConsoleApplication1
 {
@@ -24,7 +25,7 @@ namespace ConsoleApplication1
                     int currentCommand = Convert.ToInt32(Console.ReadLine());
                     switch (currentCommand)
                     {
-                        case 1: Console.WriteLine("AddTask"); ; break;
+                        case 1: DBHelpers.DBAction.AddTask(); break;
                         case 2: Console.WriteLine("DeleteTask"); ; break;
                         case 3: Console.WriteLine("ShowTasks"); break;
                         default:
