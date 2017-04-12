@@ -43,7 +43,23 @@ namespace ConsoleApplication1.DBHelpers
 
         public static void DeleteTask()
         {
-
+            Console.WriteLine("Enter the name of the task: ");
+            int idOfTaskToDelete = Convert.ToInt32(Console.ReadLine());
+            using (Context context = new Context())
+            {
+                Task taskToDelete = context.TaskSet.First(n => n.TaskID == idOfTaskToDelete);
+                if(taskToDelete != null)
+                {
+                    context.TaskSet.Remove(taskToDelete);
+                }
+                else
+                {
+                    Console.WriteLine("There is no such ID: {0}", idOfTaskToDelete);
+                }
+                context.SaveChanges();
+                Console.WriteLine("Task is successfully deleted\n");
+                Console.ReadKey();
+            }
         }
 
         public static void ShowAllTask()
@@ -56,8 +72,8 @@ namespace ConsoleApplication1.DBHelpers
 
                 foreach (Task item in allTask)
                 {
-                    Console.WriteLine("Title: {0}\n Deadline:{1}\n CreatedDate: {2}\n Commentary: {3}",
-                        item.Title, item.DeadLine, item.CreatedDate, item.Commentary);
+                    Console.WriteLine("ID: {0}\n Title: {1}\n Deadline:{2}\n CreatedDate: {3}\n Commentary: {4}",
+                        item.TaskID, item.Title, item.DeadLine, item.CreatedDate, item.Commentary);
                     Console.WriteLine();
                 }
                 Console.WriteLine();
