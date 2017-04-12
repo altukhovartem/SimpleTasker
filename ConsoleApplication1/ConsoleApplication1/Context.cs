@@ -9,12 +9,14 @@ namespace ConsoleApplication1
 {
     class Context: DbContext
     {
+
         public Context()
             :base("currentCnnection")
         {
 
         }
         
+
         public DbSet<Task> TaskSet { get; set; }
     }
 }

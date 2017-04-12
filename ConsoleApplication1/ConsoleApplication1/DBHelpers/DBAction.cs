@@ -14,9 +14,8 @@ namespace ConsoleApplication1.DBHelpers
             {
                 Task task = new Task()
                 {
-                    taskID = 1,
                     createdDate = new DateTime(2007, 2, 2),
-                    title = "First Task"
+                    title = "Second Task"
                 };
                 try
                 {
