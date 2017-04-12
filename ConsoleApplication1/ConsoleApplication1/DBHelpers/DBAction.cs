@@ -48,7 +48,21 @@ namespace ConsoleApplication1.DBHelpers
 
         public static void ShowAllTask()
         {
+            Console.Clear();
+            Console.WriteLine("===== All Current Tasks: =====\n");
+            using (Context context = new Context())
+            {
+                List<Task> allTask = context.TaskSet.ToList();
 
+                foreach (Task item in allTask)
+                {
+                    Console.WriteLine("Title: {0}\n Deadline:{1}\n CreatedDate: {2}\n Commentary: {3}",
+                        item.Title, item.DeadLine, item.CreatedDate, item.Commentary);
+                    Console.WriteLine();
+                }
+                Console.WriteLine();
+            }
+            Console.ReadKey();
         }
     }
 }

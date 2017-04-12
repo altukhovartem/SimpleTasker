@@ -12,7 +12,7 @@ namespace ConsoleApplication1
     {
         static void Main(string[] args)
         {
-            Database.SetInitializer(new DropCreateDatabaseAlways<Context>());
+            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<Context>());
 
             bool loop = true;
             Console.WriteLine("*** Tasker 3000 ***");
@@ -28,8 +28,8 @@ namespace ConsoleApplication1
                 switch (currentCommand)
                 {
                     case 1: DBAction.AddTask(); break;
-                    case 2: Console.WriteLine("DeleteTask"); ; break;
-                    case 3: Console.WriteLine("ShowTasks"); break;
+                    case 2: DBAction.DeleteTask(); break;
+                    case 3: DBAction.ShowAllTask(); break;
                     case 0: loop = false; break;
                     default:
                         break;
