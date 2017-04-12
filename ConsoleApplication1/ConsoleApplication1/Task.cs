@@ -9,8 +9,12 @@ namespace ConsoleApplication1
 {
     class Task
     {
-        public int taskID { get; set; }
-        public string title { get; set; }
-        public DateTime createdDate { get; set; }
+        public int TaskID { get; set; }
+
+        [Required]
+        public string Title { get; set; }
+        public DateTime CreatedDate { get; set; }
+        public DateTime DeadLine { get; set; }
+        public string Commentary { get; set; }
     }
 }

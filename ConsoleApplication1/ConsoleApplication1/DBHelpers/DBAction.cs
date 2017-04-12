@@ -10,12 +10,24 @@ namespace ConsoleApplication1.DBHelpers
     {
         public static void AddTask()
         {
+            Console.Clear();
+            Console.WriteLine("===== Add New ask =====");
+            Console.WriteLine("Title:");
+            string newTaskTitle = Console.ReadLine();
+            Console.WriteLine("Deadline:");
+            DateTime newTaskDeadline = Convert.ToDateTime(Console.ReadLine());
+            Console.WriteLine("Commentary:");
+            string newTaskCommentary = Console.ReadLine();
+            Console.WriteLine("========================");
+
             using (Context context = new Context())
             {
                 Task task = new Task()
                 {
-                    createdDate = new DateTime(2007, 2, 2),
-                    title = "Second Task"
+                    Title = newTaskTitle,
+                    DeadLine = newTaskDeadline,
+                    Commentary = newTaskCommentary,
+                    CreatedDate = DateTime.Now
                 };
                 try
                 {
