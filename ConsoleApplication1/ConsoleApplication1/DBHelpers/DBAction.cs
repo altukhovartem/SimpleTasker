@@ -12,11 +12,11 @@ namespace ConsoleApplication1.DBHelpers
         {
             Console.Clear();
             Console.WriteLine("===== Add New ask =====");
-            Console.WriteLine("Title:");
+            Console.WriteLine("Title: ");
             string newTaskTitle = Console.ReadLine();
-            Console.WriteLine("Deadline:");
+            Console.WriteLine("Deadline: ");
             DateTime newTaskDeadline = Convert.ToDateTime(Console.ReadLine());
-            Console.WriteLine("Commentary:");
+            Console.WriteLine("Commentary: ");
             string newTaskCommentary = Console.ReadLine();
             Console.WriteLine("========================");
 
@@ -72,7 +72,7 @@ namespace ConsoleApplication1.DBHelpers
 
                 foreach (Task item in allTask)
                 {
-                    Console.WriteLine("ID: {0}\n Title: {1}\n Deadline:{2}\n CreatedDate: {3}\n Commentary: {4}",
+                    Console.WriteLine("ID: {0}\nTitle: {1}\nDeadline:{2}\nCreatedDate: {3}\nCommentary: {4}",
                         item.TaskID, item.Title, item.DeadLine, item.CreatedDate, item.Commentary);
                     Console.WriteLine();
                 }
