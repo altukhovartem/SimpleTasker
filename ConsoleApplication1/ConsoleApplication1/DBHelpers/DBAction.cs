@@ -47,17 +47,18 @@ namespace ConsoleApplication1.DBHelpers
             int idOfTaskToDelete = Convert.ToInt32(Console.ReadLine());
             using (Context context = new Context())
             {
-                Task taskToDelete = context.TaskSet.First(n => n.TaskID == idOfTaskToDelete);
+                Task taskToDelete = context.TaskSet.FirstOrDefault(n => n.TaskID == idOfTaskToDelete);
                 if(taskToDelete != null)
                 {
                     context.TaskSet.Remove(taskToDelete);
+                    context.SaveChanges();
+                    Console.WriteLine("Task is successfully deleted\n");
                 }
                 else
                 {
-                    Console.WriteLine("There is no such ID: {0}", idOfTaskToDelete);
+                    Console.WriteLine("Error: There is no Task with ID {0}", idOfTaskToDelete);
                 }
-                context.SaveChanges();
-                Console.WriteLine("Task is successfully deleted\n");
+                Console.WriteLine("Press any key");
                 Console.ReadKey();
             }
         }
@@ -76,7 +77,7 @@ namespace ConsoleApplication1.DBHelpers
                         item.TaskID, item.Title, item.DeadLine, item.CreatedDate, item.Commentary);
                     Console.WriteLine();
                 }
-                Console.WriteLine();
+                Console.WriteLine("Press any key");
             }
             Console.ReadKey();
         }
