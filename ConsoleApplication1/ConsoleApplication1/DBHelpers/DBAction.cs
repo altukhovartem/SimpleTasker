@@ -1,8 +1,8 @@
 ﻿using ConsoleApplication1.Model;
+using ConsoleApplication1.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 
 namespace ConsoleApplication1.DBHelpers
@@ -21,7 +21,7 @@ namespace ConsoleApplication1.DBHelpers
             string newTaskCommentary = Console.ReadLine();
             Console.WriteLine("========================");
 
-            using (Context context = new Context())
+            using (currentContext context = new currentContext())
             {
                 Task currenttask = new Task()
                 {
@@ -46,7 +46,7 @@ namespace ConsoleApplication1.DBHelpers
         {
             Console.WriteLine("Enter the name of the task: ");
             int idOfTaskToDelete = Convert.ToInt32(Console.ReadLine());
-            using (Context context = new Context())
+            using (currentContext context = new currentContext())
             {
                 Task taskToDelete = context.TaskSet.FirstOrDefault(n => n.TaskID == idOfTaskToDelete);
                 if(taskToDelete != null)
@@ -68,7 +68,7 @@ namespace ConsoleApplication1.DBHelpers
         {
             Console.Clear();
             Console.WriteLine("===== All Current Tasks: =====\n");
-            using (Context context = new Context())
+            using (currentContext context = new currentContext())
             {
                 List<Task> allTask = context.TaskSet.ToList();
 

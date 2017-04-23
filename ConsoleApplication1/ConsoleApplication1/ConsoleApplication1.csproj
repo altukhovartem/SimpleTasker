@@ -52,7 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Context.cs" />
+    <Compile Include="Data\DbContext.cs" />
     <Compile Include="DBHelpers\DBAction.cs" />
     <Compile Include="Model\Task.cs" />
     <Compile Include="Program.cs" />

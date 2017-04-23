@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ConsoleApplication1.DBHelpers;
 using System.Data.Entity;
+using ConsoleApplication1.Data;
 
 namespace ConsoleApplication1
 {
@@ -12,7 +13,7 @@ namespace ConsoleApplication1
     {
         static void Main(string[] args)
         {
-            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<Context>());
+            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<currentContext>());
 
             bool loop = true;
             Console.WriteLine("*** Tasker 3000 ***");
