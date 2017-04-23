@@ -1,8 +1,9 @@
-﻿using System;
+﻿using ConsoleApplication1.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+
 
 namespace ConsoleApplication1.DBHelpers
 {
@@ -22,7 +23,7 @@ namespace ConsoleApplication1.DBHelpers
 
             using (Context context = new Context())
             {
-                Task task = new Task()
+                Task currenttask = new Task()
                 {
                     Title = newTaskTitle,
                     DeadLine = newTaskDeadline,
@@ -31,7 +32,7 @@ namespace ConsoleApplication1.DBHelpers
                 };
                 try
                 {
-                    context.TaskSet.Add(task);
+                    context.TaskSet.Add(currenttask);
                 }
                 catch(Exception e)
                 {
