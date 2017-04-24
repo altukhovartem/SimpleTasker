@@ -19,16 +19,21 @@ namespace ConsoleApplication1.DBHelpers
             DateTime newTaskDeadline = Convert.ToDateTime(Console.ReadLine());
             Console.WriteLine("Commentary: ");
             string newTaskCommentary = Console.ReadLine();
+            Console.WriteLine("User: ");
+            string newUserID = Console.ReadLine();
             Console.WriteLine("========================");
 
             using (currentContext context = new currentContext())
             {
+                User userToAssign = context.UserSet.FirstOrDefault(x => x.Login == newUserID);
+
                 Task currenttask = new Task()
                 {
                     Title = newTaskTitle,
                     DeadLine = newTaskDeadline,
                     Commentary = newTaskCommentary,
-                    CreatedDate = DateTime.Now
+                    CreatedDate = DateTime.Now,
+                    Assigny = userToAssign
                 };
                 try
                 {
@@ -96,7 +101,7 @@ namespace ConsoleApplication1.DBHelpers
             string newFirstName = Console.ReadLine();
             Console.WriteLine("Last Name: ");
             string newLastName = Console.ReadLine();
-            Console.WriteLine("First Name: ");
+            Console.WriteLine("Age: ");
             int newAge = Convert.ToInt32(Console.ReadLine());
 
             using (currentContext context = new currentContext())
