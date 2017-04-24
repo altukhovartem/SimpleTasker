@@ -54,7 +54,9 @@
   <ItemGroup>
     <Compile Include="Data\DbContext.cs" />
     <Compile Include="DBHelpers\DBAction.cs" />
+    <Compile Include="Model\User.cs" />
     <Compile Include="Model\Task.cs" />
+    <Compile Include="Model\UserProfile.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

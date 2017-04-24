@@ -16,5 +16,6 @@ namespace ConsoleApplication1.Data
         }
 
         public DbSet<Task> TaskSet { get; set; }
+        public DbSet<User> UserSet { get; set; }
     }
 }

@@ -82,5 +82,69 @@ namespace ConsoleApplication1.DBHelpers
             }
             Console.ReadKey();
         }
+
+        public static void AddUser()
+        {
+            Console.Clear();
+            Console.WriteLine("===== Add New Person =====");
+            Console.WriteLine("Login: ");
+            string newLogin = Console.ReadLine();
+            Console.WriteLine("Password: ");
+            string newPassword = Console.ReadLine();
+
+            Console.WriteLine("First Name: ");
+            string newFirstName = Console.ReadLine();
+            Console.WriteLine("Last Name: ");
+            string newLastName = Console.ReadLine();
+            Console.WriteLine("First Name: ");
+            int newAge = Convert.ToInt32(Console.ReadLine());
+
+            using (currentContext context = new currentContext())
+            {
+                User currentUser = new User()
+                {
+                    Login = newLogin,
+                    Password = newPassword,    
+                };
+
+                UserProfile currentUserProfile = new UserProfile
+                {
+                    FirstName = newFirstName,
+                    LastName = newLastName,
+                    Age = newAge
+                };
+
+                try
+                {
+                    currentUser.UserProfile = currentUserProfile;
+                    context.UserSet.Add(currentUser);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                }
+                context.SaveChanges();
+            }
+        }
+
+        public static void ShowAllUsers()
+        {
+            Console.Clear();
+            Console.WriteLine("===== All Available User: =====\n");
+            using (currentContext context = new currentContext())
+            {
+                List<User> allUsers = context.UserSet.ToList();
+
+                foreach (User item in allUsers)
+                {
+                    //Console.WriteLine("ID: {0}\nFirst Name: {1}\nLast Name: {2}",
+                    //    item.UserID, item.FirstName, item.LastName);
+                    Console.WriteLine();
+                }
+                Console.WriteLine("Press any key");
+            }
+            Console.ReadKey();
+        }
+
     }
 }
