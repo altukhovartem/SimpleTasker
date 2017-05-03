@@ -16,7 +16,7 @@ namespace ConsoleApplication1.Model
         public DateTime DeadLine { get; set; }
         public string Commentary { get; set; }
 
-        public int UserID { get; set; }
-        public User Assigny { get; set; }
+        public int? UserID { get; set; }
+        public User User { get; set; }
     }
 }

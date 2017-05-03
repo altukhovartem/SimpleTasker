@@ -13,7 +13,7 @@ namespace ConsoleApplication1.Model
         public string Login { get; set; }
         public string Password { get; set; }
 
-        public UserProfile UserProfile { get; set; }
+        public UserProfile Profile { get; set; }
         public List<Task> Tasks { get; set; }
         public User()
         {

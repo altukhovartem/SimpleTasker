@@ -33,7 +33,7 @@ namespace ConsoleApplication1.DBHelpers
                     DeadLine = newTaskDeadline,
                     Commentary = newTaskCommentary,
                     CreatedDate = DateTime.Now,
-                    Assigny = userToAssign
+                    User = userToAssign
                 };
                 try
                 {
@@ -75,12 +75,12 @@ namespace ConsoleApplication1.DBHelpers
             Console.WriteLine("===== All Current Tasks: =====\n");
             using (currentContext context = new currentContext())
             {
-                List<Task> allTask = context.TaskSet.ToList();
+                List<Task> allTask = context.TaskSet.Include("User").ToList();
 
                 foreach (Task item in allTask)
                 {
-                    Console.WriteLine("ID: {0}\nTitle: {1}\nDeadline:{2}\nCreatedDate: {3}\nCommentary: {4}",
-                        item.TaskID, item.Title, item.DeadLine, item.CreatedDate, item.Commentary);
+                    Console.WriteLine("ID: {0}\nTitle: {1}\nDeadline:{2}\nCreatedDate: {3}\nCommentary: {4}\nUser: {5}",
+                        item.TaskID, item.Title, item.DeadLine, item.CreatedDate, item.Commentary, item.User.Login);
                     Console.WriteLine();
                 }
                 Console.WriteLine("Press any key");
@@ -121,7 +121,7 @@ namespace ConsoleApplication1.DBHelpers
 
                 try
                 {
-                    currentUser.UserProfile = currentUserProfile;
+                    currentUser.Profile = currentUserProfile;
                     context.UserSet.Add(currentUser);
                 }
                 catch (Exception e)
@@ -138,12 +138,12 @@ namespace ConsoleApplication1.DBHelpers
             Console.WriteLine("===== All Available User: =====\n");
             using (currentContext context = new currentContext())
             {
-                List<User> allUsers = context.UserSet.ToList();
+                List<User> allUsers = context.UserSet.Include("Profile").ToList();
 
                 foreach (User item in allUsers)
                 {
-                    //Console.WriteLine("ID: {0}\nFirst Name: {1}\nLast Name: {2}",
-                    //    item.UserID, item.FirstName, item.LastName);
+                    Console.WriteLine("ID: {0}\nLogin: {1}\nLast Name: {2}\nFirst Name: {3}\nAge: {4}",
+                        item.UserID, item.Login, item.Profile.LastName, item.Profile.FirstName, item.Profile.Age);
                     Console.WriteLine();
                 }
                 Console.WriteLine("Press any key");
