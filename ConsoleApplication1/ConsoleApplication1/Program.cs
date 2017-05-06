@@ -13,8 +13,6 @@ namespace ConsoleApplication1
     {
         static void Main(string[] args)
         {
-            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<TaskerContext>());
-
             bool loop = true;
             Console.WriteLine("*** Tasker 3000 ***");
             Console.WriteLine("Available command for now ... Press nessecety button");

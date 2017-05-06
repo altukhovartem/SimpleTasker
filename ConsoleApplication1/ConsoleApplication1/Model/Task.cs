@@ -18,5 +18,10 @@ namespace ConsoleApplication1.Model
 
         public int? UserID { get; set; }
         public User User { get; set; }
+
+        public Task()
+        {
+            CreatedDate = DateTime.Now;
+        }
     }
 }

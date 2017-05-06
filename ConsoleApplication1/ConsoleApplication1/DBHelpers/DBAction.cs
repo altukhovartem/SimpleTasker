@@ -32,7 +32,6 @@ namespace ConsoleApplication1.DBHelpers
                     Title = newTaskTitle,
                     DeadLine = newTaskDeadline,
                     Commentary = newTaskCommentary,
-                    CreatedDate = DateTime.Now,
                     User = userToAssign
                 };
                 try
@@ -51,7 +50,7 @@ namespace ConsoleApplication1.DBHelpers
         {
             Console.WriteLine("Enter the name of the task: ");
             int idOfTaskToDelete = Convert.ToInt32(Console.ReadLine());
-            using (currentContext context = new currentContext())
+            using (TaskerContext context = new TaskerContext())
             {
                 Task taskToDelete = context.TaskSet.FirstOrDefault(n => n.TaskID == idOfTaskToDelete);
                 if(taskToDelete != null)
@@ -104,7 +103,7 @@ namespace ConsoleApplication1.DBHelpers
             Console.WriteLine("Age: ");
             int newAge = Convert.ToInt32(Console.ReadLine());
 
-            using (currentContext context = new currentContext())
+            using (TaskerContext context = new TaskerContext())
             {
                 User currentUser = new User()
                 {
@@ -136,7 +135,7 @@ namespace ConsoleApplication1.DBHelpers
         {
             Console.Clear();
             Console.WriteLine("===== All Available User: =====\n");
-            using (currentContext context = new currentContext())
+            using (TaskerContext context = new TaskerContext())
             {
                 List<User> allUsers = context.UserSet.Include("Profile").ToList();
 
