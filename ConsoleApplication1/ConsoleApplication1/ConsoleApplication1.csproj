@@ -52,7 +52,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data\DbContext.cs" />
+    <Compile Include="Data\TaskerContext.cs" />
+    <Compile Include="Data\DBInitializer.cs" />
     <Compile Include="DBHelpers\DBAction.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Model\Task.cs" />

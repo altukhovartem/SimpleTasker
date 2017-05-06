@@ -23,7 +23,7 @@ namespace ConsoleApplication1.DBHelpers
             string newUserID = Console.ReadLine();
             Console.WriteLine("========================");
 
-            using (currentContext context = new currentContext())
+            using (TaskerContext context = new TaskerContext())
             {
                 User userToAssign = context.UserSet.FirstOrDefault(x => x.Login == newUserID);
 
@@ -73,7 +73,7 @@ namespace ConsoleApplication1.DBHelpers
         {
             Console.Clear();
             Console.WriteLine("===== All Current Tasks: =====\n");
-            using (currentContext context = new currentContext())
+            using (TaskerContext context = new TaskerContext())
             {
                 List<Task> allTask = context.TaskSet.Include("User").ToList();
 
